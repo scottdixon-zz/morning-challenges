@@ -11,7 +11,7 @@
 # reverse("hello") should return "olleh"
 #
 # Check your solution by running the tests:
-# ruby tests/reverse_test.rb
+# ruby tests/01_reverse_test.rb
 #
 
 def reverse (string)
