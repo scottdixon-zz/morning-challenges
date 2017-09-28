@@ -4,8 +4,7 @@
 # as input, and return a new string with
 # the same letters in reverse order.
 #
-# Difficulty:
-# 1/10
+# Diffic
 #
 # Example:
 # reverse("hello") should return "olleh"
@@ -15,5 +14,5 @@
 #
 
 def reverse (string)
-  # Your code here
+  string.reverse
 end
