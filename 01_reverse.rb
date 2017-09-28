@@ -13,7 +13,11 @@
 # Check your solution by running the tests:
 # ruby tests/01_reverse_test.rb
 #
-
+puts "String: "
+string = gets.chomp
 def reverse (string)
   # Your code here
+  return string.reverse
 end
+ans = reverse(string)
+puts ans
