@@ -15,5 +15,16 @@
 #
 
 def reverse (string)
-  # Your code here
+  (string).reverse
+end
+
+89.times do
+ print ("*")
+end
+
+puts
+puts "If this ruby program works, the word: 'clams' should be printed to the screen as: #{reverse("'clams'")}"
+
+89.times do
+  print ("*")
 end
