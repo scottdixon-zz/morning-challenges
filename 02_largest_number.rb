@@ -15,5 +15,5 @@
 #
 
 def largest_number (number_1, number_2)
-  # Your code here
+  [number_1, number_2].max
 end
