@@ -16,4 +16,13 @@
 
 def largest_number (number_1, number_2)
   # Your code here
+  if number_1 > number_2
+    return number_1
+  elsif number_1 < number_2
+    return number_2
+  elsif number_1 == number_2
+    return "Same Number"
+  else
+    return "Invalid Input"
+  end
 end
