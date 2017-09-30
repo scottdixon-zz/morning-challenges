@@ -20,8 +20,11 @@
 #   else number_2
 #   end
 # end
-
-def largest_number (number_1, number_2)
-   number_1 > number_2 ? number_1 : number_2
-
+def largest_number(number_1, number_2)
+  if  number_1 > number_2 then number_1 else number_2 end
 end
+
+# def largest_number (number_1, number_2)
+#    number_1 > number_2 ? number_1 : number_2
+#
+# end
