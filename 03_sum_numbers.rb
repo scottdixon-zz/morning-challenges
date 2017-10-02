@@ -16,7 +16,6 @@
 
 def sum_numbers (numbers)
   numbers.inject :+
-
 end
 sum_numbers([1, 1, 1])
-sum_numbers([5, 2 , 100, 0, 10])
+sum_numbers([5, 2, 100, 0, 10])
