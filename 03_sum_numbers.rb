@@ -14,8 +14,13 @@
 # ruby tests/03_sum_numbers_test.rb
 #
 
+# def sum_numbers (numbers)
+#   numbers.inject :+
+# end
+# sum_numbers([1, 1, 1])
+# sum_numbers([5, 2, 100, 0, 10])
 def sum_numbers (numbers)
-  numbers.inject :+
+  numbers.sum
 end
 sum_numbers([1, 1, 1])
 sum_numbers([5, 2, 100, 0, 10])
