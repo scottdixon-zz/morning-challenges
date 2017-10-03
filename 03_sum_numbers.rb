@@ -15,5 +15,9 @@
 #
 
 def sum_numbers (numbers)
-  # Your code here
+  # Using the sum enumberable method available in Ruby 2.4
+  numbers.sum
+  # Using the inject method available in Ruby 1.8.7; 0 is used to return 0 rather than 'nil' if the array is empty.
+  # numbers.inject(0, &:+)
+
 end
