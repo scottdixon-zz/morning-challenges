@@ -16,4 +16,12 @@
 
 def sum_numbers (numbers)
   # Your code here
+  numArray = numbers
+  total = 0
+  numArray.each do |num|
+    if num > 0
+      total += num
+    end
+  end
+  return total
 end
