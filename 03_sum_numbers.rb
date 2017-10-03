@@ -14,6 +14,7 @@
 # ruby tests/03_sum_numbers_test.rb
 #
 
+<<<<<<< HEAD
 # def sum_numbers (numbers)
 #   numbers.inject :+
 # end
@@ -33,3 +34,8 @@ def sum_numbers (numbers)
 end
   sum_numbers([1, 1, 1])
   sum_numbers([5, 2, 100, 0, 10])
+=======
+def sum_numbers (numbers)
+  # Your code here
+end
+>>>>>>> 1d05877c24cc47e04b33993b3fa57a40956a53a5
