@@ -15,7 +15,7 @@
 #
 
 def vowels (string)
-  vowels = []
+#  vowels = []
   vowels = string.scan(/[AEIOUaeiou]/)
 #  vowels.push()
 end
