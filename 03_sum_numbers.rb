@@ -28,7 +28,7 @@
 # sum_numbers([5, 2, 100, 0, 10])
 
 def sum_numbers (numbers)
-  numbers.each do |num|
+  # numbers.each do|num|
     numbers << num + 1
   end
 end
