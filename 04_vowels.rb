@@ -15,5 +15,20 @@
 #
 
 def vowels (string)
-  # Your code here
+  splitstring = string.split(//)
+  vowellist = []
+  splitstring.each do |x|
+    if x == "a" or x == "A"
+      vowellist.push(x)
+    elsif x == "e" or x == "E"
+      vowellist.push(x)
+    elsif x == "i" or x == "I"
+      vowellist.push(x)
+    elsif x == "o" or x == "O"
+      vowellist.push(x)
+    elsif x == "u" or x == "U"
+      vowellist.push(x)
+    end
+  end
+  vowellist
 end
