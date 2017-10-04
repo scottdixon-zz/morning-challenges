@@ -15,5 +15,15 @@
 #
 
 def vowels (string)
-  # Your code here
+  results = []
+      vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"] #the same as %w[ a e i o u ]
+      string.split("").each do |char|
+        vowels.each do |vowel|
+          if char == vowel
+            results.push(vowel)
+
+          end
+        end
+      end
+      return results
 end
