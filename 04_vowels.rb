@@ -24,4 +24,3 @@ def vowels(string)
 	end
 	group
 end
-
