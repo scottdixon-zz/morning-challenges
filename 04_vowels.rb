@@ -14,6 +14,10 @@
 # ruby tests/04_vowels_test.rb
 #
 
-def vowels (string)
-  # Your code here
+def vowels(string)
+  count_vowels = Array.new
+  string.scan(/[aeiouAEIOU]/).each do |x|
+    count_vowels.push(x)
+  end
+count_vowels
 end
