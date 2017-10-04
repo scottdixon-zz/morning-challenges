@@ -15,11 +15,5 @@
 #
 
 def vowels (string)
-  result = []
-  string.each_char do |char|
-    if ["a", "i", "e", "o", "u", "A", "I", "E", "O", "U"].include? char
-      result << char
-    end
-  end
-  return result
+  # Your code here
 end
