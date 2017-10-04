@@ -7,13 +7,19 @@
 # 4/10
 #
 # Example:
-# count_vowels("The quick brown fox") should return ["e","u","i","o","o"]
-# count_vowels("Hello World") should return ["e","o","o"]
+# vowels("The quick brown fox") should return ["e","u","i","o","o"]
+# vowels("Hello World") should return ["e","o","o"]
 #
 # Check your solution by running the tests:
 # ruby tests/04_vowels_test.rb
 #
 
 def vowels (string)
-  # Your code here
+  result = []
+  string.split('').each do |c|
+    if "aeiouAEIOU".include? c
+      result.push(c)
+    end
+  end
+  return result
 end
