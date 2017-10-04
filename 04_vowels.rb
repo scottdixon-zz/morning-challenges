@@ -16,4 +16,12 @@
 
 def vowels (string)
   # Your code here
+  vowelArr = []
+  letters = string.split(%r{\s*})
+  letters.each do |letter|
+    if letter.capitalize == "A" || letter.capitalize == "E" || letter.capitalize == "I" || letter.capitalize == "O" || letter.capitalize == "U"
+      vowelArr.push(letter)
+    end
+  end
+  return vowelArr
 end
