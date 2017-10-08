@@ -13,7 +13,6 @@
 #
 # Check your solution by running the tests:
 # ruby tests/07_in_array_test.rb
-#
 
 def in_array (needle, haystack)
   haystack.include?(needle)
