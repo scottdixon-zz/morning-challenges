@@ -17,11 +17,13 @@
 
 def in_array (needle, haystack)
   # Your code here
-  result = false
-  haystack.each_with_index do |word, index|
-    if needle == haystack[index]
-      result = true
-    end
-  end
-  return result
+  haystack.include? needle
+  # First Attempt
+  # result = false
+  # haystack.each_with_index do |word, index|
+  #   if needle == haystack[index]
+  #     result = true
+  #   end
+  # end
+  # return result
 end
