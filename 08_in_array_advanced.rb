@@ -19,7 +19,20 @@
 # ruby tests/08_in_array_advanced_test.rb
 #
 
-def in_array_advanced (needle, haystack, strict)
-  # Your code here
-  
+def in_array_advanced(needle, haystack, strict)
+
+  haystack.each do |word|
+    if strict
+      if needle == word
+        return true
+      end
+    else
+      if needle.downcase == word.downcase
+        return true
+      end
+    end
+  end
+
+return false
+
 end
