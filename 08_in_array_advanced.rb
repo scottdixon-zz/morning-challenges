@@ -31,5 +31,4 @@ def in_array_advanced (needle, haystack, strict)
       end
     end
   end
-  return false
 end
