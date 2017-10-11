@@ -27,4 +27,5 @@ def unique (mylist)
     end
   end
   result
+
 end
