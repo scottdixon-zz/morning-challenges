@@ -17,7 +17,37 @@
 # Check your solution by running the tests:
 # ruby tests/09_unique_test.rb
 #
-
+#
+#array style
 def unique (mylist)
-  # Your code here
+clean = []
+duplicate = []
+  mylist.each do |value|
+    if !clean.include?(value)
+        clean.push(value)
+    else
+      duplicate.push(value)
+    end
+  end
+  return clean
+end
+
+#hash style
+def unique (mylist)
+  clean = {}
+  duplicate = []
+  mylist.each do |value|
+    if value != true
+      clean[value] = value
+    else
+      duplicate.push(value)
+    end
+  end
+   clean.keys
+end
+
+#and the refactored version
+def unique (mylist)
+  #compares mylist with itself and returns as a union
+  mylist & mylist
 end
