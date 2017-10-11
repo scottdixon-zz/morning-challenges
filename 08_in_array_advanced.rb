@@ -20,6 +20,11 @@
 #
 
 def in_array_advanced (needle, haystack, strict)
-  # Your code here
-  
+  if strict
+  haystack.each { |thing| return true if thing == needle }
+else
+  haystack.each { |thing| return true if thing.downcase == needle.downcase }
+end
+
+return false
 end
