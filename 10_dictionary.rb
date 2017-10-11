@@ -21,5 +21,13 @@
 #
 
 class Dictionary
-  # Your code here
+  def add_word
+
+  end
+
+  def lookup
+  end
+
+  def total_words
+  end
 end
