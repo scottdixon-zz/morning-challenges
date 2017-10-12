@@ -21,13 +21,21 @@
 #
 
 class Dictionary
-  def add_word
 
+  def initialize
+    @hash = {}
   end
 
-  def lookup
-  end
+  def add_word(word, defin)
+      @hash.store(word, defin)
+    end
 
   def total_words
+      @hash.length
   end
+
+  def lookup(word)
+    @hash[word]
+  end
+
 end
