@@ -24,5 +24,16 @@
 #
 
 def nthFibonacci (n)
-  # Your code here    
+
+  $fib = [0, 1]
+
+  num1 = 0
+  num2 = 1
+  n.times do
+    result = num1 + num2
+    $fib.push(result)
+    num1 = num2
+    num2 = result
+  end
+  $fib[n]
 end
