@@ -27,8 +27,7 @@
 #
 
 def fizzbuzz
-  range = (1..100).to_a
-  range.each do |x|
+  (1..100).each do |x|
     if x % 3 == 0 and x % 5 == 0
       puts "fizzbuzz"
     elsif x % 3 == 0
