@@ -26,4 +26,14 @@
 # ...etc
 #
 
-# Your code here  
+numbers = (1..100).to_a
+for i in numbers do
+  if i % 3 == 0 && i % 5 == 0
+    i = "FizzBuzz"
+  elsif i % 3 == 0
+    i = "Fizz"
+  elsif i % 5 == 0
+    i = "Buzz"
+  end
+  puts i
+end
