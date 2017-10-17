@@ -19,5 +19,13 @@
 #
 
 def includedOnce (haystack, needle)
-  # Your code here
+
+  wordcount = Hash.new(0)
+
+  haystack.each do |x|
+    wordcount[x] += 1
+  end
+
+  return wordcount[needle] == 1
+  
 end
