@@ -11,7 +11,7 @@
 # indentation and be consistent in your decisions
 # (e.g. stick to single or double quotes)
 #
-# Difficulty: ~6/10 (Varies depending on solution. 
+# Difficulty: ~6/10 (Varies depending on solution.
 # The more optimised the solution, the more difficult
 # the algorithm.)
 #
@@ -31,6 +31,18 @@
 #
 
 def firstNonRepeat (string)
+  chars_list = string.chars
+  previous_char = nil
+
+  chars_list.each_with_index do |current_char, index|
+    next_char = (chars_list.length == index + 1) ? nil : chars_list[index + 1]
+
+    return current_char if current_char != previous_char and current_char != next_char
+    previous_char = current_char
+  end
+
+  return false
+end
   # Your code here
   # Whiteboard first!
 end
