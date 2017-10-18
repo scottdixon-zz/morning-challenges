@@ -20,6 +20,7 @@
 
 def includedOnce (haystack, needle)
 
+
   needle_count = 0
 
 
@@ -30,5 +31,4 @@ def includedOnce (haystack, needle)
 end
 
   needle_count == 1
-
 end

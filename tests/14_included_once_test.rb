@@ -8,7 +8,9 @@ class IncludedOnceTest < Test::Unit::TestCase
   end
   def test_included_once_no_matches
     assert_equal(false, includedOnce(['hello','hey','hey'], 'hi'))
+
     assert_equal(true, includedOnce(['hello','hey','hey','hi'], 'hi'))
 
   end
 end
+
