@@ -23,5 +23,17 @@
 #
 
 def ExesAndOhs(string)
-  # yo' co' here
+  x_count = 0
+  o_count = 0
+
+  string.split.downcase
+    string.each do |char|
+      if char == 'x'
+        x_count += 1
+      elsif char == 'o'
+        o_count += 1
+      end
+    end
+
+    x_count == o_count
 end
