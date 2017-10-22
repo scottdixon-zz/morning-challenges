@@ -9,8 +9,7 @@
 # pageTitle("http://www.reddit.com") => "reddit: the front page of the internet"
 #
 # Check your answers by running the tests:
-# ruby tests/16_page_title_test.rb
-#
+# ruby tests/16_page_title_test.r
 require 'open-uri'
   def pageTitle(url)
     open(url) do |f|
