@@ -21,5 +21,21 @@
 
 def in_array_advanced (needle, haystack, strict)
   # Your code here
-  
+  # result = true
+  # haystack.each_with_index do |word, index|
+  #   if needle == haystack[index]
+  #     result = true
+  #   end
+  # end
+  # return result
+  if strict == true
+    haystack.include? needle
+  elsif strict == false
+    haystack.each do |word|
+      if needle.capitalize == word.capitalize
+        return true
+      end
+    end
+    return false
+  end
 end

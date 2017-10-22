@@ -20,4 +20,9 @@
 
 def includedOnce (haystack, needle)
   # Your code here
+  if haystack.uniq.length == haystack.length
+      return true
+  else
+      return false
+  end
 end

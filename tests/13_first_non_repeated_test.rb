@@ -3,7 +3,7 @@ require_relative '../13_first_non_repeated'
 
 class FirstNonRepeatedTest < Test::Unit::TestCase
   def test_first_letter
-    assert_equal('a', firstNonRepeat('awwwhhhggge'))
+    assert_equal('a', firstNonRepeat('awwwhhhgggea'))
   end
 
   def test_middle_letter

@@ -26,4 +26,31 @@
 # ...etc
 #
 
-# Your code here  
+# Your code here
+
+def fizzbuzz
+  # 100.times do |num|
+  #   num += 1
+  #   if (num%3) == 0 && (num%5) == 0
+  #     puts "FizzBuzz"
+  #   elsif (num%3) == 0
+  #     puts "Fizz"
+  #   elsif (num%5) == 0
+  #     puts "Buzz"
+  #   else
+  #     puts num
+  #   end
+  # end
+  # puts (1..100).map {|i|
+  # 	f = i % 3 == 0 ? 'Fizz' : nil
+  # 	b = i % 5 == 0 ? 'Buzz' : nil
+  # 	f || b ? "#{ f }#{ b }" : i
+  #   }
+  puts (1..100).map do |i|
+    r = ["Fizz"][i % 3]
+    r = "#{r}Buzz" if i % 5 == 0
+    r || i
+  end
+end
+
+fizzbuzz

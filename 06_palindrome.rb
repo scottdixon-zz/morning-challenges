@@ -17,4 +17,15 @@
 
 def palindrome (string)
   # Your code here
+  letters = string.split(%r{\s*})
+  half = (letters.length / 2).floor
+  i = 0
+  loop do
+    if letters[i] == letters[-i]
+      i += 1
+      half = 4
+      break
+    end
+  end
+  return half
 end

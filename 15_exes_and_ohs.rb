@@ -24,4 +24,7 @@
 
 def ExesAndOhs(string)
   # yo' co' here
+  stringArr = string.split("")
+  comparator = {x: 0, o: 0}
+  
 end

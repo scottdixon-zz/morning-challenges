@@ -13,17 +13,9 @@
 #
 # Check your solution by running the tests:
 # ruby tests/07_in_array.rb
-#
+
 
 def in_array (needle, haystack)
   # Your code here
   haystack.include? needle
-  # First Attempt
-  # result = false
-  # haystack.each_with_index do |word, index|
-  #   if needle == haystack[index]
-  #     result = true
-  #   end
-  # end
-  # return result
 end
