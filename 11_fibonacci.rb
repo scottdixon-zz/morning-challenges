@@ -24,5 +24,11 @@
 #
 
 def nthFibonacci (n)
-  # Your code here    
+  fib = [0, 1]
+
+  (n).times do
+    sum = fib[-1] + fib[-2]
+    fib.push(sum)
+  end
+  fib[n]
 end
