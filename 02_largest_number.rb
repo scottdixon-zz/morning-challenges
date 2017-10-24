@@ -14,6 +14,14 @@
 # ruby tests/02_largest_number_test.rb
 #
 
+# def largest_number (number_1, number_2)
+#   if number_1 > number_2
+#      number_1
+#   else number_2
+#   end
+# end
+
 def largest_number (number_1, number_2)
-  # Your code here
+   number_1 > number_2 ? number_1 : number_2
+
 end
