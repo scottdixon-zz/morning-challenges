@@ -16,5 +16,9 @@
 #
 
 def palindrome (string)
-  # Your code here
+  if string == string.reverse
+    true
+  else
+    false
+  end
 end
