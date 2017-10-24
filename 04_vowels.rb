@@ -15,5 +15,12 @@
 #
 
 def vowels (string)
-  # Your code here
+result = []
+
+  string.split("").each do |character|
+    if  "aeiouAEIOU".include?(character)
+      result.push(character)
+    end
+  end
+  result
 end
