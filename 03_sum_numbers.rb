@@ -15,5 +15,13 @@
 #
 
 def sum_numbers (numbers)
-  # Your code here
+  sum = 0
+  numbers.each do |i|
+   sum += i
+ end
+ sum
 end
+
+
+sum_numbers [1,1,1]
+sum_numbers [5,2,100,0,10]
