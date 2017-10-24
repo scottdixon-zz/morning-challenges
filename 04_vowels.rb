@@ -15,5 +15,12 @@
 #
 
 def vowels (string)
-  # Your code here
+#  vowels = []
+  string.scan(/[AEIOUaeiou]/)
+#  vowels.push()
 end
+
+#  else string.split
+#  end
+#vowels()
+#vowels("Hello World")

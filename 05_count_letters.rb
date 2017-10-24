@@ -15,9 +15,17 @@
 #
 
 def count_letters (string)
-  result = {} # You'll need an empty hash to get started!
-  
-  # Your code here
+  #result = {} # You'll need an empty hash to get started!
 
-  result # return the hash
-end
+    string.scan(/[A-z]/).inject(Hash.new(0)){|letter, count| letter[count] += 1; letter}
+    #what i was trying to do and it would split the string but complain about converting to integer..
+   #string.scan(/[A-z]/).to_i.count(/[A-z]/)
+
+  end
+  # s.each do  |l|
+  #   l += 1
+  #   result.push(l)
+  # end
+
+
+#  return result
