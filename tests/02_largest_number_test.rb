@@ -6,4 +6,8 @@ class LargestNumberTest < Test::Unit::TestCase
     assert_equal(20, largest_number(10,20))
     assert_equal(100, largest_number(100,50))
   end
+
+  # def test_largest_number_2
+  #   assert_equal(100, largest_number(100,50))
+  # end
 end
