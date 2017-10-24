@@ -11,8 +11,7 @@ mocha tests/18_open_door_test.js
 */
 
 function openDoor (name, hasCoffee) {
-  // Your code here
-  // Google JS syntax ;)
+  return name == "Simon" && hasCoffee
 }
 
 
