@@ -15,5 +15,7 @@
 #
 
 def sum_numbers (numbers)
-  # Your code here
+  numbers.sum
 end
+sum_numbers([1,1,1])
+sum_numbers([5,2,100,0,10])
