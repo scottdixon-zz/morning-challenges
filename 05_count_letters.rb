@@ -20,7 +20,11 @@ def count_letters (string)
   # Your code here
   letters = string.split(%r{\s*})
   letters.each do |letter|
-    
+    if !result.has_key?(letter)
+      result[letter] = 1
+    elsif result.has_key?(letter)
+      result[letter] += 1
+    end
   end
   result # return the hash
 end

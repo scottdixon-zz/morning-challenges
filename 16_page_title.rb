@@ -14,4 +14,9 @@
 
 def pageTitle(url)
   # your code here
+  require 'open-uri'
+    open(url) do |f|
+      str = f.read
+      str.scan(/<title>(.*?)<\/title>/).join
+    end
 end

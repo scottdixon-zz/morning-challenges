@@ -25,6 +25,18 @@
 def ExesAndOhs(string)
   # yo' co' here
   stringArr = string.split("")
-  comparator = {x: 0, o: 0}
-  
+  x = 0
+  o = 0
+  stringArr.each do |letter|
+    if letter.upcase == "X"
+      x += 1
+    elsif letter.upcase == "O"
+      o += 1
+    end
+  end
+  if x == o
+    return true
+  else
+    return false
+  end
 end

@@ -34,5 +34,29 @@ def firstNonRepeat (string)
   # Your code here
   # Whiteboard first!
   letters = string.split(%r{\s*})
-  
+  flip = false
+  nonRepeat = []
+  letters.each_with_index do |letter,index|
+      if index+1 < letters.size && flip
+        if letter != letters[index-1] && letter != letters[index+1]
+          nonRepeat << letter
+        end
+      end
+      if !flip
+        if letter == letters[index+1]
+          flip = true
+        elsif letter != letters[index+1]
+          flip = true
+          nonRepeat << letter
+        end
+      end
+  end
+  if letters[letters.size-1] != letters[letters.size-2]
+    nonRepeat << letters[letters.size-1]
+  end
+  if nonRepeat[0] == nil
+    return false
+  else
+    return nonRepeat[0]
+  end
 end

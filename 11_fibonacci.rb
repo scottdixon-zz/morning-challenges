@@ -24,5 +24,20 @@
 #
 
 def nthFibonacci (n)
-  # Your code here    
+  # Your code here
+  fArr = []
+  a = 0
+  b = 1
+  if n == 0
+    fArr << 0
+  elsif n == 1
+    fArr << 0
+  elsif n > 1
+    fArr << 0
+    while fArr.size < n+1 do
+      fArr << b
+      a,b = b,a+b
+    end
+  end
+  return fArr[n]
 end

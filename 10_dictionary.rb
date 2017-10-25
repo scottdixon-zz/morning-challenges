@@ -22,4 +22,21 @@
 
 class Dictionary
   # Your code here
+attr_accessor :dictionary
+
+  def initialize
+    @dictionary = {}
+  end
+
+  def add_word(word,definition)
+    @dictionary[word] = definition
+  end
+
+  def total_words
+    return @dictionary.count
+  end
+
+  def lookup(word)
+    return @dictionary[word]
+  end
 end

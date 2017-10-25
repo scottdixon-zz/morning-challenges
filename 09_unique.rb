@@ -20,4 +20,13 @@
 
 def unique (mylist)
   # Your code here
+  uniqueArr = []
+  uniqueHash = {}
+  mylist.each do |item|
+    if !uniqueHash.has_key?(item)
+      uniqueHash[item] = item
+      uniqueArr.push(item)
+    end
+  end
+  uniqueArr
 end
