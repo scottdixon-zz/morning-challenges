@@ -1,0 +1,55 @@
+<!-- 
+  Finally, we get to do some fun stuff with JS.
+  Open this HTML document in your browser and click
+  the button to reveal the secret message.
+
+  ** Don't Google. Look at the current code, it should
+  give you enough hints to complete the challenge **
+
+  Your challenge is to:
+  1. CSS: Change the background colour of the secret message.
+  2. HTML: Add another button "Hide secret message"
+  3. JS: Make the hide button work!
+
+  Hints:
+  element.style.whatever lets us modify an element's CSS using JS.
+  CSS 'display' can be set to 'block' (show) or 'none' (hide).
+
+ -->
+<!doctype html>
+<html>
+  <head>
+    <title>Hidden Message</title>
+
+    <style>
+    body {
+      text-align: center;
+    }
+    #hidden-message {
+      background: #c4c5ff;
+      padding: 200px;
+      display: none;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="hidden-message">This is our hidden message!</div>
+    <button id="button-show">Show secret message</button>
+  </body>
+
+  <script>
+  // Get the element #hidden-message and assign it to hiddenMessage variable
+  const hiddenMessage = document.querySelector('#hidden-message')
+  
+  // Get the element #button-show and assign it to buttonShow variable
+  const buttonShow = document.querySelector('#button-show')
+
+  // Listen for a buttonShow click
+  buttonShow.onclick = function () {
+    // buttonShow has been clicked, show the hidden message.
+    hiddenMessage.style.display = 'block';
+  }
+  </script>
+
+</html>
