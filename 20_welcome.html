@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
   Run this file in your browser to see what it does.
 
@@ -24,13 +24,19 @@
     <style>
     body {
       text-align: center;
+      padding: 50px;
+    }
+
+    input {
+      padding: 20px;
     }
     </style>
   </head>
 
   <body>
-
-    <p><input type="text" placeholder="Enter your name"></p>
+    <div id="text_box">
+    <h2><input type="text" placeholder="Enter your name",></h2>
+    </div>
 
     <h1></h1>
 
@@ -42,7 +48,11 @@
 
   name.onkeyup = function () {
     // hint: name.value gives you the current text in the input box
-    welcomeMessage.textContent = `Welcome, ${name.value}!`;
+    if (name.value == '') {
+      welcomeMessage.textContent = '';
+    }else {
+      welcomeMessage.textContent = `Welcome, ${name.value.toUpperCase()}!`;
+    }
   }
   </script>
 
