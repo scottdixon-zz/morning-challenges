@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
   Run this file in your browser to see what it does.
 
@@ -25,25 +25,42 @@
     body {
       text-align: center;
     }
+    input {
+      padding: 20px;
+    }
     </style>
   </head>
 
   <body>
 
-    <p><input type="text" placeholder="Enter your name"></p>
+    <p><input id="first" type="text" placeholder="Enter your first name"></p>
+    <p><input id="last" type="text" placeholder="Enter your last name"></p>
 
     <h1></h1>
 
   </body>
 
   <script>
-  const name = document.querySelector('input')
+  const firstName = document.querySelector('#first')
+  const lastName = document.querySelector('#last')
   const welcomeMessage = document.querySelector('h1')
 
-  name.onkeyup = function () {
+  firstName.onkeyup = function () {
     // hint: name.value gives you the current text in the input box
-    welcomeMessage.textContent = `Welcome, ${name.value}!`;
+    welcomeMessage.textContent = `Welcome, ${firstName.value.toUpperCase()} ${lastName.value.toUpperCase()}!`;
+    if (firstName.value === ""){
+      welcomeMessage.textContent = ``;
+    }
   }
+  lastName.onkeyup = function () {
+    // hint: name.value gives you the current text in the input box
+    welcomeMessage.textContent = `Welcome, ${firstName.value.toUpperCase()} ${lastName.value.toUpperCase()}!`;
+    if (firstName.value === "" && lastName.value !== ""){
+      welcomeMessage.textContent = `Welcome, Mr. ${lastName.value}!`
+    }
+
+  }
+
   </script>
 
 </html>
