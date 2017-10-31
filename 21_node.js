@@ -19,7 +19,13 @@
     browser knowns you're sending it HTML.
 
 */
-
+// // Content-Type: text/html; charset=utf-8
+// // Content-Type: multipart/form-data; boundary=something
+// <html>
+//   <body>
+//   <h1> Welcome </h1>
+//   </body>
+// </html>
 const http = require('http')
 const port = 3000
 
@@ -27,7 +33,7 @@ const requestHandler = (request, response) => {
 
   console.log('Woop, new request!', request.method, request.url);
 
-  if (request.url === '/hello') {
+  if (request.url === '/') {
     response.end('world')
   }
 
