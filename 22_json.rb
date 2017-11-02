@@ -2,7 +2,7 @@
 # https://api.myjson.com/bins/ga3o3
 #
 # Use http://jsonprettyprint.com to understand the ugly JSON data.
-# 
+#
 # Your challange is to use puts to:
 # - List the latitude, longitude and timezone.
 # - List each day's summary and maximum.
@@ -27,3 +27,11 @@ weather_raw_json = Net::HTTP.get(URI.parse(weather_json_url))
 weather = JSON.parse(weather_raw_json)
 
 # Your code here!
+puts weather["latitude"]
+puts weather["longitude"]
+puts weather["timezone"]
+
+weather["daily"]["data"].each do |day|
+	puts day["summary"]
+	puts day["temperatureMax"]
+end
