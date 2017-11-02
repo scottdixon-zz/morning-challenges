@@ -27,8 +27,8 @@ const requestHandler = (request, response) => {
 
   console.log('Woop, new request!', request.method, request.url);
 
-  if (request.url === '/hello') {
-    response.end('world')
+  if (request.url === '/') {
+    response.end('<h1>Hello World</h1>')
   }
 
   response.end('Not found!!')
