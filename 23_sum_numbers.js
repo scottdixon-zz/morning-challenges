@@ -16,8 +16,12 @@
 */
 
 sumNumbers = (numbers) => {
-  
+  total = 0
+  numbers.forEach(function(number){
+  total = total + number
+});
+  return total
 }
-  
+
 // Don't remove this line, the tests need it
 module.exports = sumNumbers
