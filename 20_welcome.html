@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
   Run this file in your browser to see what it does.
 
@@ -47,3 +47,11 @@
   </script>
 
 </html>
+
+
+document.querySelectorAll('.js-calendar-graph-svg g g').forEach(function (item) {
+   console.log('I found a column')
+   item.querySelectorAll('rect').forEach(function (square) {
+     square.setAttribute('fill', 'green')
+   })
+})
