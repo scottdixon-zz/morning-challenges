@@ -27,7 +27,13 @@
 function rentalCarCost (d) {
   let total = 0;
   // Your code here!
-
+  if (d < 3){
+    total += d * 40;
+  } else if (d >= 3 && d < 7) {
+    total += (40 * d) - 20;
+  } else if (d >= 7){
+    total += (d * 40) - 50;
+  }
   return total
 }
 
