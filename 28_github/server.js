@@ -1,4 +1,4 @@
-/* 
+/*
 
   GitHub API
 
@@ -10,7 +10,7 @@
   1. Check out the GitHub API response of:
      https://api.github.com/users/[your-user-name]
 
-  2. Look at the code below and think about what it's doing. 
+  2. Look at the code below and think about what it's doing.
 
   3. Start the server and head to:
      http://localhost:3000/github/[your-github-username]
@@ -20,7 +20,7 @@
 
   5. Beast mode: Can you list each of the users repos in the view?
      (hint: https://api.github.com/users/<github-user>/repos)
-  
+
 */
 
 const express = require('express');
@@ -35,6 +35,7 @@ app.set('view engine', 'pug')
 app.get("/github/:username", (req, res) => {
   // We can get the username from the URL using req.params
   let username = req.params.username;
+  let location = req.params.location;
 
   // Hit GitHub's API to get information about a user
   axios.get('https://api.github.com/users/' + username)
