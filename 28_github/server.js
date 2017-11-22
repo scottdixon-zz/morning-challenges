@@ -20,7 +20,6 @@
 
   5. Beast mode: Can you list each of the users repos in the view?
      (hint: https://api.github.com/users/<github-user>/repos)
-
 */
 
 const express = require('express');
@@ -35,7 +34,6 @@ app.set('view engine', 'pug')
 app.get("/github/:username", (req, res) => {
   // We can get the username from the URL using req.params
   let username = req.params.username;
-  let location = req.params.location;
 
   // Hit GitHub's API to get information about a user
   axios.get('https://api.github.com/users/' + username)
@@ -49,6 +47,7 @@ app.get("/github/:username", (req, res) => {
          res.send('Whoops! Something went wrong.');
        });
 });
+
 
 // Listen for connections (turn the server on)
 app.listen(port);
