@@ -1,0 +1,18 @@
+html
+  head
+    title Please Log In
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+  body
+    .container
+      .card.card-container
+        img#profile-img.profile-img-card(src='/images/avatar_2x.png')
+        p#profile-name.profile-name-card
+        form.form-signin(action='/secure', method='post')
+          span#reauth-email.reauth-email
+          input#inputPassword.form-control(type='password', name='password' placeholder='Password')
+          #remember.checkbox
+            label
+              input(type='checkbox', name='agree')
+              |  I agree
+          button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') Sign in
