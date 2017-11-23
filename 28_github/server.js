@@ -1,4 +1,4 @@
-/* 
+/*
 
   GitHub API
 
@@ -10,7 +10,7 @@
   1. Check out the GitHub API response of:
      https://api.github.com/users/[your-user-name]
 
-  2. Look at the code below and think about what it's doing. 
+  2. Look at the code below and think about what it's doing.
 
   3. Start the server and head to:
      http://localhost:3000/github/[your-github-username]
@@ -20,7 +20,7 @@
 
   5. Beast mode: Can you list each of the users repos in the view?
      (hint: https://api.github.com/users/<github-user>/repos)
-  
+
 */
 
 const express = require('express');
@@ -38,15 +38,27 @@ app.get("/github/:username", (req, res) => {
 
   // Hit GitHub's API to get information about a user
   axios.get('https://api.github.com/users/' + username)
-       .then((response) => {
+       .then((githubResponse) => {
          // Everything worked. Response.data has all the GitHub info
          // Render our github.pug file and hand it all the info
-         res.render('github', {githubDetails: response.data});
+         // Hit Github's API to get information about a user's repos
+         axios.get('https://api.github.com/users/' + username + '/repos')
+              .then((repoResponse) => {
+                // Everything worked. Response.data has all the Github repo info
+                // Render our github.pug file and hand it all the info
+                res.render('github', {githubRepos: repoResponse.data, githubDetails: githubResponse.data});
+              }).catch(function (error) {
+                // Error catch
+                console.log(error);
+                res.send('Whoops! Something went wrong.')
+              });
        }).catch(function (error) {
          // Something went wrong
          console.log(error);
          res.send('Whoops! Something went wrong.');
        });
+
+
 });
 
 // Listen for connections (turn the server on)
