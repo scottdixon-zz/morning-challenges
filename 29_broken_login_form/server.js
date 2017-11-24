@@ -1,4 +1,4 @@
-/* 
+/*
 
   Our login form is broken!
 
@@ -20,15 +20,29 @@
      E.g. "You've tried to login 3 times". Make sure it works per user.
   5. Reset the login failures to 0 if they successfully log in.
   6. Store the users in mongo instead on this file.
-  
-*/
 
+*/
+ const users = [
+  {
+    email: "example@example.com",
+    password: "example",
+    agree: "on"
+  },
+  {
+    email: "example2@example.com",
+    password: "example",
+    agree: "on"
+  }
+]
 const express = require('express');
 const app = express();
+var bodyParser = require('body-parser')
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
@@ -38,8 +52,21 @@ app.get("/", (req, res) => {
 });
 
 app.post("/secure", (req, res) => {
-  res.render('secure');
+  let email = req.body.email
+  let password = req.body.password
+  let agree = req.body.agree
+  let authenticated = false
+  users.forEach((user) => {
+    if (user.email === email && user.password === password && user.agree === agree) {
+      authenticated = true
+    }
+  })
+  if (authenticated) {
+    res.render('secure')
+  } else {
+    res.sendStatus('401')
+  // console.log(req.body.email)
+  }
 });
-
 app.listen(3000);
 console.log("Lift off!");
