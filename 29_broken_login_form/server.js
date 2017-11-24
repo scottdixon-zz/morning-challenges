@@ -25,10 +25,12 @@
 
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
@@ -38,8 +40,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/secure", (req, res) => {
-  res.render('secure');
+  if (req.body.password !== 'dog' || req.body.agree !== 'on') {
+    res.sendStatus(401);
+  } else {
+    res.render('secure');
+  }  
 });
+ 
 
 app.listen(3000);
 console.log("Lift off!");
