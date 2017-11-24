@@ -22,25 +22,23 @@
   6. Store the users in mongo instead on this file.
 
 */
- const users = [
-  {
-    email: "example@example.com",
-    password: "example",
-    agree: "on"
-  },
-  {
-    email: "example2@example.com",
-    password: "example",
-    agree: "on"
-  }
-]
+users = {
+ 'scott@gmail.com': {
+   password: 'hello',
+   login_count: 0
+ },
+ 'john@doe.com': {
+   password: 'abc123',
+   login_count: 0
+ }
+}
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser')
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
-app.use(express.static('public'));
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -48,25 +46,29 @@ app.use(bodyParser.json())
 app.set('view engine', 'pug')
 
 app.get("/", (req, res) => {
-  res.render('login');
-});
+  res.render('login')
+})
 
 app.post("/secure", (req, res) => {
   let email = req.body.email
   let password = req.body.password
   let agree = req.body.agree
   let authenticated = false
-  users.forEach((user) => {
-    if (user.email === email && user.password === password && user.agree === agree) {
+    if (users[email] && users[email].password === req.body.password) {
       authenticated = true
     }
-  })
   if (authenticated) {
+    users[email].login_count = 0
     res.render('secure')
   } else {
-    res.sendStatus('401')
+    if (users[email]) {
+      users[email].login_count++
+      res.status(401).send(`You' ve tried to login ${users[email].login_count} times`)
+    } else {
+      res.sendStatus(401)
+    }
   // console.log(req.body.email)
   }
 });
 app.listen(3000);
-console.log("Lift off!");
+console.log("Lift off!")
