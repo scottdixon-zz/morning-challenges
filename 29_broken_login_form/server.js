@@ -34,19 +34,29 @@ users = {
 }
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser')
+let bodyParser = require('body-parser')
+let session = require('express-session')
+
+
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(session({ secret: 'broken login', cookie: { maxAge: 60000 }}))
+
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
 
-app.get("/", (req, res) => {
-  res.render('login')
+app.get("/", (req, res, next) => {
+
+  if (req.session.email) {
+    res.render('secure')
+  }  else {
+      res.render('login')
+  }
 })
 
 app.post("/secure", (req, res) => {
@@ -59,7 +69,8 @@ app.post("/secure", (req, res) => {
     }
   if (authenticated) {
     users[email].login_count = 0
-    res.render('secure')
+     req.session.email = email
+    res.render('secure') //+  ((req.session.cookie.maxAge / 1000)))
   } else {
     if (users[email]) {
       users[email].login_count++
@@ -70,5 +81,9 @@ app.post("/secure", (req, res) => {
   // console.log(req.body.email)
   }
 });
+
+// app.delete("/delete", (req, res)) => {
+//
+// }
 app.listen(3000);
 console.log("Lift off!")
