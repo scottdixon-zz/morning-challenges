@@ -26,6 +26,21 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+let users = {
+      'test@match.com': {
+      password: 'cricket',
+      login_count: 0
+    },
+      'ashes@match.com': {
+      password: 'cricket11',
+      login_count: 0
+    },
+      'notcricket@fan': {
+      password: 'cricketsux',
+      login_count: 0
+    }
+  }
+  
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
@@ -35,17 +50,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
 
+// Get request for login page
 app.get("/", (req, res) => {
   res.render('login');
 });
 
+// Login form request
 app.post("/secure", (req, res) => {
-  if (req.body.password !== 'dog' || req.body.agree !== 'on') {
-    res.sendStatus(401);
+  let email = req.body.email;
+  let password = req.body.password;
+  let checkbox = req.body.agree;
+
+// Check email/pass
+  if ((users[email] && users[email].password === password) && checkbox === 'on') {
+    res.render('secure');  
   } else {
-    res.render('secure');
-  }  
+    res.sendStatus(401);
+  };
+  // Increment login count by one _if_ the email exists
+  if (users[email]) {
+    users[email].login_count++
+  } 
 });
+
  
 
 app.listen(3000);
