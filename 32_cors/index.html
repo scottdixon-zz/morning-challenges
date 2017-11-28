@@ -1,0 +1,47 @@
+<!-- 
+
+# CORS / same-origin policy
+
+This is a common interview topic.
+
+1. Review the code below. Predict it's result before running it.
+
+2. Open this file in your browser. Make sure console is open. Refresh.
+
+3. Check out the response from the randomuser api in console.
+
+4. Start one of your API servers from last week.
+
+5. Update the GET request below to hit your API
+   (e.g. http://localhost:3000/api/students)
+
+6. Seeing the 'Access-Control-Allow-Origin' error?
+   Your browser is trying to keep you safe.
+   Research: What is the same-origin policy.
+
+7. Make some changes to your express server to allow access.
+
+-->
+<!doctype html>
+<html>
+<head>
+  <title>CORS</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+  // document ready is saying 'once everything has loaded'
+  $(document).ready(function(){
+    
+    // Set a GET request to randomuser's api
+    $.get('http://randomuser.me/api/').then((response) => {
+      
+      // Log the response to console (using JSON.stringify to make it pretty)
+      console.log(JSON.stringify(response, '', 2));
+
+    });
+  });
+  </script>
+</head>
+<body>
+  <p>Hello world!</p>
+</body>
+</html>
