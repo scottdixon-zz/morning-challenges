@@ -27,28 +27,30 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 let users = {
-      'test@match.com': {
-      password: 'cricket',
-      login_count: 0
-    },
-      'ashes@match.com': {
-      password: 'cricket11',
-      login_count: 0
-    },
-      'notcricket@fan': {
-      password: 'cricketsux',
-      login_count: 0
-    }
+  'test@match.com': {
+    password: 'cricket',
+    login_count: 0
+  },
+  'ashes@match.com': {
+    password: 'cricket11',
+    login_count: 0
+  },
+  'notcricket@fan': {
+    password: 'cricketsux',
+    login_count: 0
   }
-  
+};
+
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // Views #thepuglifechoseme
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
 
 // Get request for login page
 app.get("/", (req, res) => {
@@ -61,19 +63,19 @@ app.post("/secure", (req, res) => {
   let password = req.body.password;
   let checkbox = req.body.agree;
 
-// Check email/pass
+  // Check email/pass
   if ((users[email] && users[email].password === password) && checkbox === 'on') {
-    res.render('secure');  
+    res.render('secure');
   } else {
     res.sendStatus(401);
-  };
+  }
   // Increment login count by one _if_ the email exists
   if (users[email]) {
-    users[email].login_count++
-  } 
+    users[email].login_count++;
+  }
 });
 
- 
+
 
 app.listen(3000);
 console.log("Lift off!");
