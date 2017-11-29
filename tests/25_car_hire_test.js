@@ -16,6 +16,6 @@ describe("Regular Tests:", function() {
     assert.equal(rentalCarCost(7), 230);
     assert.equal(rentalCarCost(8), 270);
     assert.equal(rentalCarCost(9), 310);
-    assert.equal(rentalCarCost(10), 350);    
+    assert.equal(rentalCarCost(10), 350);
   });
 });
