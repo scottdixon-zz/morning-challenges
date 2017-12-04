@@ -5,7 +5,7 @@
   allAnagrams takes a word (a) and an array of potential anagrams (b).
 
   Return an array of actual anagrams.
-  
+
   For example:
   allAnagrams("cat", ["act","dog","god","tac"]) should return: ["act, tac"]
 
@@ -15,7 +15,16 @@
 */
 
 const allAnagrams = (a, b) => {
-  // Your code here
+  aSplit = a.split('').sort().join('')
+  results = []
+
+  b.forEach((item) => {
+    bSplit = item.split('').sort().join('')
+    if (aSplit === bSplit) {
+      results.push(item)
+    }
+  })
+  return results
 }
 
 module.exports = allAnagrams;
