@@ -15,11 +15,11 @@ console.log(greet());
 
 // *Functions & Arrow Functions*
 // Here's a function that takes a first and last name and logs a full name.
-const fullName = (first, last) => {
-  console.log(first + ' ' + last);
+const fullName = (first, middle, last) => {
+  console.log(`${first} ${middle} ${last}`);
 };
 // 1. Call the function so it puts your full name onto the screen.
-fullName('Renzo', 'Lim');
+fullName('Lorenzo', 'Vinchenzo', 'Lim');
 
 // 2. Use modern syntax, turn fullName into an es6 arrow function.
 

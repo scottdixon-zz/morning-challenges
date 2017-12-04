@@ -1,4 +1,4 @@
-/* 
+/*
 
   Node API TDD
 
@@ -17,7 +17,7 @@
 
   4. Beast mode: add some tests to yesterday's challenge. Can you
      figure out a way to test POST?
-  
+
 */
 
 const express = require('express');
@@ -27,16 +27,18 @@ const port = 3000;
 let books = [
   {
     id: 0,
-    title: 'Eloquent JavaScript 2nd Edition'
+    title: 'Eloquent JavaScript 2nd Edition',
+    year: 2017
   },
   {
     id: 1,
-    title: 'JavaScript: The Good Parts'
+    title: 'JavaScript: The Good Parts',
+    year: 2016
   }
 ];
 
 app.get("/", (req, res) => {
-  res.send(200);
+  res.sendStatus(200);
 });
 
 app.get("/books", (req, res) => {

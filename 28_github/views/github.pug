@@ -3,3 +3,8 @@ html
     title Pretty GitHub
   body
     p Viewing information about #{githubDetails.login}
+    p Location: #{githubDetails.location}
+    p Total repos: #{githubDetails.public_repos}
+    h1 All Repos
+    each repos in allRepos
+      p= repos.name
