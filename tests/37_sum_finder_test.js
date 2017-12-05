@@ -9,4 +9,8 @@ describe("Sum Finder", function() {
   it("Should return false if no two numbers add up to sum", function() {
     assert.equal(sumFinder([1,3], 2), false);
   });
+  it("Shouldn't compare the same number to get the total", function() {
+    // e.g. 4+4 is 8.
+    assert.equal(sumFinder([4,5], 8), false);
+  });
 });
