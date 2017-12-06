@@ -30,6 +30,7 @@
 
 */
 
+
 const validEmail = (email) => {
   if (!email.includes("@") || !email.includes('.')) return false
   let [leftString, rightString] = email.split('@')
@@ -40,5 +41,6 @@ const validEmail = (email) => {
 
   return true
 }
+
 
 module.exports = validEmail
