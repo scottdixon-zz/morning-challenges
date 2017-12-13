@@ -14,17 +14,19 @@ Run the code to validate your expectations.
 
 */
 
-const waitFor = (delay, cb) => {
-  setTimeout(cb, delay * 1000) // setTimeout delay is in milliseconds
-}
+// function waitFor(delay) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolve, delay * 1000)
+//   });
+// }
 
-waitFor(3, () => {
-  console.log('Finished waiting for 3 seconds!')
-})
-
-waitFor(1, () => {
-  console.log('Finished waiting for 1 second!')
-})
+// waitFor(3, () => {
+//   console.log('Finished waiting for 3 seconds!')
+// })
+//
+// waitFor(1, () => {
+//   console.log('Finished waiting for 1 second!')
+// })
 
 
 /*
@@ -60,6 +62,12 @@ Pass a value to resolve and pick it up in your .then
 
 */
 
+// function waitFor(delay) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve('Success!'), delay * 1000)
+//   });
+// }
+//
 // waitFor(3).then((response) => {
 //   console.log(response)
 // })
@@ -78,3 +86,17 @@ Chain your .thens to manage flow. Goal:
 Hint: You won't need to update the waitFor method. Research chaining promises.
 
 */
+
+function waitFor(delay) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Success!'), delay * 1000)
+  });
+}
+
+
+waitFor(3).then((result) => {
+  console.log('Finished waiting for 3 seconds!')
+  return waitFor(1)
+}).then((result) => {
+  console.log('Finished waiting for 1 second!')
+})
