@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.1.2",
+    "inquire": "^0.4.8",
+    "inquirer": "^4.0.1",
     "jsonwebtoken": "^8.1.0"
   }
 }
