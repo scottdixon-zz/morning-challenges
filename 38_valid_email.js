@@ -31,7 +31,9 @@
 */
 
 const validEmail = (email) => {
-  
+  let at = email.search('@')
+  let dot = email.lastIndexOf(`.`)
+  return (at != 0 && at < dot && dot != ++at && !email.endsWith(dot))
 }
 
 module.exports = validEmail

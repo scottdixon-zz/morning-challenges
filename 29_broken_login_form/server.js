@@ -23,16 +23,23 @@
 
 */
 
-const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session')
+const express = require('express');
 const users = require('./database');
 const app = express();
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(session({
+  secret: 'Js Ninja',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
@@ -42,13 +49,26 @@ app.get("/", (req, res) => {
 });
 
 app.post("/secure", (req, res) => {
-  let email = req.body.email
+  const email = req.body.email
+  req.session.email = email;
   if (users[email].password === req.body.password && req.body.agree === 'on'){
-    res.render('secure');
+    req.session.attempts = 0
+    res.render('secure', {email: req.session.email});
   } else {
-    res.send(401);
+    if(email == req.session.email){
+      if (!req.session.attempt){
+        req.session.attempt = 0;
+      }
+      let totalVisits = req.session.attempt + 1;
+      if (req.session.attempt == 3){
+        res.send(401);
+      } else {
+        res.render('login');
+      }
+    } else {
+      res.send(401);
+    }
   };
-
 });
 
 app.listen(3000);

@@ -14,7 +14,6 @@
     (you can simluate an error by changing the https request to http)
   - Display a message to the user if something goes wrong.
   - Refactor the axios GET to use async/await instead of .then
-
 */
 
 import React, { Component } from 'react';
@@ -24,12 +23,14 @@ import './App.css';
 class App extends Component {
   // Our initital state. An empty userEmail.
   state = {
-    userEmail: ''
+    userEmail: '',
+    isLoading: false
   }
   render() {
     return (
       <div className="App">
         <p className="App-intro">
+          {}
           Welcome, { this.state.userEmail }
         </p>
       </div>
@@ -37,6 +38,9 @@ class App extends Component {
   }
   componentDidMount() {
     // setTimeout added to simulate a slow network
+    this.setState({
+      isLoading: true
+    })
     setTimeout(() => {
       // Get a random user from the randomuser api
       axios.get('https://randomuser.me/api/').then((response) => {

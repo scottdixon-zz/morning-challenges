@@ -20,7 +20,12 @@ checkCoupon('123a','123','September 5, 2018','October 1, 2018') -> false
 */
 
 const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => {
-
+  if (enteredCode == correctCode){
+    const mySimpleDateFormatter = new simpleDateFormat('MMMM d, yyyy');
+    return true
+  } else {
+    return false
+  }
 }
 
 module.exports = checkCoupon

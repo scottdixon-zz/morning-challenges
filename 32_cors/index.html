@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
 # CORS / same-origin policy
 
@@ -30,12 +30,13 @@ This is a common interview topic.
   <script>
   // document ready is saying 'once everything has loaded'
   $(document).ready(function(){
-    
+
     // Set a GET request to randomuser's api
-    $.get('http://randomuser.me/api/').then((response) => {
-      
+    $.get('http://localhost:3000/api/students').then((response) => {
+
       // Log the response to console (using JSON.stringify to make it pretty)
-      console.log(JSON.stringify(response, '', 2));
+      // console.log(JSON.stringify(response, '', 2));
+      console.log(response);
 
     });
   });

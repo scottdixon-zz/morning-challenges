@@ -39,12 +39,12 @@ class App extends Component {
   // };
 
   onClick = () => {
-    console.log(this.state.buttons[0].totalClicks);
-    // const { totalClicks } = this.state.buttons[0]
-    // const total = totalClicks + 1
-    // this.setState({
-    //   totalClicks: total
-    // })
+    // console.log(this.state.buttons[0].totalClicks);
+    const { totalClicks } = this.state.buttons[0]
+    const total = totalClicks + 1
+    this.setState({
+      totalClicks: total
+    })
   }
 
   render() {
