@@ -45,7 +45,7 @@ describe("formatAddress", () => {
 });
 describe("totalCost", () => {
   it("Should return the total cost of a customer's order", () => {
-    assert.equal(totalCost('jane@doe.com', 6172), 25.41);
+    assert.equal(totalCost('jane@doe.com', 61721), 25.41);
   });
 });
 describe("addProduct", () => {
