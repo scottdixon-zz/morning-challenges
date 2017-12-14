@@ -1,21 +1,46 @@
 const jwt = require('jsonwebtoken');
 const colors = require('colors');
+const inquirer = require('inquirer');
+
 
 class SimpleJwt {
+  constructor(password) {
+    this.password = password
+  }
+
+
   sign (payload) {
     // Return a JWT
-    const token = jwt.sign(payload, 'abc');
-    console.log(token);
+    const token = jwt.sign(payload, this.password);
+    console.log(token.rainbow);
   }
-  verify (jwt) {
+  verify (webToken) {
     // return the contents or a message re failure
-    return jwt.verify(jwt, 'abc')
+    try {
+        console.log(jwt.verify(webToken, this.password).green)
+    } catch (e) {
+      console.log(`${e}`.red)
+    } finally {
+      console.log(':)'.rainbow)
+    }
   }
 }
 
-const simpleJwt = new SimpleJwt()
-simpleJwt.sign('hello');
-
+const simpleJwt = new SimpleJwt("newpassword")
+inquirer.prompt([
+  {name: "signOrVerify",
+  message: "What would you like to do?",
+  type: "list",
+  choices: ['sign a token', 'verify a token']
+}]).then(answers => {
+  if (answers.signOrVerify === "sign a token") {
+    return simpleJwt.sign('hello');
+  } else if (answers.signOrVerify === "verify a token") {
+    return simpleJwt.verify('eyJhbGciOiJIUzI1NiJ9.aGVsbG8.mhfgZWq1LXLNENhZihMA7U6ZyQk7hA8Gv033EU6z5SI')
+  } else {
+    console.log("please make a selection...")
+  }
+});
 /*
 
   CHALLENGE
