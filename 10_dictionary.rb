@@ -21,5 +21,27 @@
 #
 
 class Dictionary
-  # Your code here
+
+  def initialize
+    @list = Hash.new
+  end
+
+  def add_word(word, definition)
+
+    @list[word] = definition
+
+  end
+
+  def total_words
+
+    @list.length
+
+  end
+
+  def lookup(word)
+
+    @list[word]
+
+  end
+
 end

@@ -16,5 +16,5 @@
 #
 
 def palindrome (string)
-  # Your code here
+  string == string.reverse
 end
