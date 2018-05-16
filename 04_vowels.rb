@@ -14,6 +14,14 @@
 # ruby tests/04_vowels_test.rb
 #
 
-def vowels (string)
-  # Your code here
+def vowels(string)
+	vgroup = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+  group = []
+  string.split('').each do |letter|
+  	if vgroup.include?(letter)
+  		group.push(letter)
+	  end
+	end
+	group
 end
+
