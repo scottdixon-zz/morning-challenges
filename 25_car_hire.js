@@ -23,11 +23,23 @@
   Check your solution:
   mocha tests/25_car_hire_test.js
 */
-
+// sudo code?
+// if d >= 7
+    // return d * 40 - 50
+  // else if d >= 3
+    // return d * 40 - 20
+    // else
+    // return d * 40
 function rentalCarCost (d) {
   let total = 0;
   // Your code here!
-
+  if (d >= 7) {
+    return d * 40 - 50
+  } else if (d >= 3) {
+    return d * 40 - 20
+  } else {
+    return d * 40
+  }
   return total
 }
 
