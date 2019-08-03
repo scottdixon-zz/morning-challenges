@@ -11,7 +11,7 @@
 # indentation and be consistent in your decisions
 # (e.g. stick to single or double quotes)
 #
-# Difficulty: ~6/10 (Varies depending on solution. 
+# Difficulty: ~6/10 (Varies depending on solution.
 # The more optimised the solution, the more difficult
 # the algorithm.)
 #
@@ -31,6 +31,21 @@
 #
 
 def firstNonRepeat (string)
-  # Your code here
-  # Whiteboard first!
+
+  letters = string.split('')
+  last_letter = letters.shift
+
+  if last_letter != letters.first
+    return last_letter
+  end
+
+  letters.each_with_index do |letter, index|
+    if letter != last_letter && letter != letters[index + 1]
+      return letter
+    end
+    last_letter = letter
+  end
+
+  false
+
 end
