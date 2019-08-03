@@ -19,5 +19,16 @@
 #
 
 def includedOnce (haystack, needle)
-  # Your code here
+
+
+  needle_count = 0
+
+
+  haystack.each do |item|
+  if item == needle
+    needle_count += 1
+  end
+end
+
+  needle_count == 1
 end
