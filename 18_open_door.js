@@ -11,10 +11,12 @@ mocha tests/18_open_door_test.js
 */
 
 function openDoor (name, hasCoffee) {
-  // Your code here
-  // Google JS syntax ;)
+  if (name === 'Simon' && hasCoffee == true) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
 
 // Don't remove this line, the tests need it
 module.exports = openDoor
