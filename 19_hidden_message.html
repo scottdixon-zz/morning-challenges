@@ -1,4 +1,4 @@
-<!-- 
+<!--
   Finally, we get to do some fun stuff with JS.
   Open this HTML document in your browser and click
   the button to reveal the secret message.
@@ -26,7 +26,7 @@
       text-align: center;
     }
     #hidden-message {
-      background: #c4c5ff;
+      background: #151515;
       padding: 200px;
       display: none;
     }
@@ -36,20 +36,31 @@
   <body>
     <div id="hidden-message">This is our hidden message!</div>
     <button id="button-show">Show secret message</button>
+    <button id="button-hide">Hide secret message</button>
   </body>
 
   <script>
   // Get the element #hidden-message and assign it to hiddenMessage variable
   const hiddenMessage = document.querySelector('#hidden-message')
-  
+
   // Get the element #button-show and assign it to buttonShow variable
   const buttonShow = document.querySelector('#button-show')
+
+  // Get the element #button-hide and assign it to buttonHide variable
+  const buttonHide = document.querySelector('#button-hide')
 
   // Listen for a buttonShow click
   buttonShow.onclick = function () {
     // buttonShow has been clicked, show the hidden message.
     hiddenMessage.style.display = 'block';
   }
+
+  // Listen for a buttonHide click
+  buttonHide.onclick = function () {
+    // buttonHide has been clicked, show the hidden message.
+    hiddenMessage.style.display = 'none';
+  }
+
   </script>
 
 </html>
