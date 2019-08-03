@@ -25,16 +25,24 @@ const port = 3000
 
 const requestHandler = (request, response) => {
 
+  response.setHeader('content-type', 'text/html');
+
   console.log('Woop, new request!', request.method, request.url);
 
   if (request.url === '/hello') {
     response.end('world')
   }
 
+  if (request.url === '/') {
+    response.end('<h1>Root Page</h1>')
+  }
+
   response.end('Not found!!')
 }
 
 const server = http.createServer(requestHandler)
+
+
 
 server.listen(port, () => {
   console.log(`server is listening on ${port}`)
