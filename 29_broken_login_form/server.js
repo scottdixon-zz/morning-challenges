@@ -1,4 +1,4 @@
-/* 
+/*
 
   Our login form is broken!
 
@@ -20,26 +20,70 @@
      E.g. "You've tried to login 3 times". Make sure it works per user.
   5. Reset the login failures to 0 if they successfully log in.
   6. Store the users in mongo instead on this file.
-  
-*/
 
+*/
+users = {
+ 'scott@gmail.com': {
+   password: 'hello',
+   login_count: 0
+ },
+ 'john@doe.com': {
+   password: 'abc123',
+   login_count: 0
+ }
+}
 const express = require('express');
 const app = express();
+let bodyParser = require('body-parser')
+let session = require('express-session')
+
+
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
-app.use(express.static('public'));
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(session({ secret: 'broken login', cookie: { maxAge: 60000 }}))
+
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
 
-app.get("/", (req, res) => {
-  res.render('login');
-});
+app.get("/", (req, res, next) => {
+
+  if (req.session.email) {
+    res.render('secure')
+  }  else {
+      res.render('login')
+  }
+})
 
 app.post("/secure", (req, res) => {
-  res.render('secure');
+  let email = req.body.email
+  let password = req.body.password
+  let agree = req.body.agree
+  let authenticated = false
+    if (users[email] && users[email].password === req.body.password) {
+      authenticated = true
+    }
+  if (authenticated) {
+    users[email].login_count = 0
+     req.session.email = email
+    res.render('secure') //+  ((req.session.cookie.maxAge / 1000)))
+  } else {
+    if (users[email]) {
+      users[email].login_count++
+      res.status(401).send(`You' ve tried to login ${users[email].login_count} times`)
+    } else {
+      res.sendStatus(401)
+    }
+  // console.log(req.body.email)
+  }
 });
 
+// app.delete("/delete", (req, res)) => {
+//
+// }
 app.listen(3000);
-console.log("Lift off!");
+console.log("Lift off!")
