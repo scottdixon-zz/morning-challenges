@@ -15,10 +15,17 @@ mocha tests/17_largest_number_test.js
 */
 
 function largestNumber (a, b) {
-  // Your code here
-  // Google JS syntax ;)
+
+    if (a > b) {
+      return a;
+  } else {
+      return b;
+  }
 }
 
 
 // Don't remove this line, the tests need it
+
 module.exports = largestNumber
+
+
