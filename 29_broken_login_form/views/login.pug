@@ -10,6 +10,7 @@ html
         p#profile-name.profile-name-card
         form.form-signin(action='/secure', method='post')
           span#reauth-email.reauth-email
+          input#inputEmail.form-control(type='input', name='email' placeholder='Email')          
           input#inputPassword.form-control(type='password', name='password' placeholder='Password')
           #remember.checkbox
             label
