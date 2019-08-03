@@ -20,9 +20,21 @@
   - Strip non-numbers from the array first. E.g. keep 3 and "3" but remove "a"
 
 */
-
 const sumFinder = (numbers, sum) => {
-  // Your code here
+  let found = false
+  numbers.forEach((number1, index1) => {
+    numbers.forEach((number2, index2) => {
+      if (index2 != index1) {
+        let sumNumber = number1 + number2
+        if (sumNumber === sum) {
+          found = true
+        }
+      }
+    })
+  })
+  return found
 }
 
+console.log(sumFinder([1,1], 2))
 module.exports = sumFinder;
+// Time complexity of this method is quadratic because as their is a loop inside a loop
