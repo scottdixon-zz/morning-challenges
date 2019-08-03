@@ -1,4 +1,4 @@
-/* 
+/*
 
   GitHub API
 
@@ -10,7 +10,7 @@
   1. Check out the GitHub API response of:
      https://api.github.com/users/[your-user-name]
 
-  2. Look at the code below and think about what it's doing. 
+  2. Look at the code below and think about what it's doing.
 
   3. Start the server and head to:
      http://localhost:3000/github/[your-github-username]
@@ -20,7 +20,6 @@
 
   5. Beast mode: Can you list each of the users repos in the view?
      (hint: https://api.github.com/users/<github-user>/repos)
-  
 */
 
 const express = require('express');
@@ -48,6 +47,7 @@ app.get("/github/:username", (req, res) => {
          res.send('Whoops! Something went wrong.');
        });
 });
+
 
 // Listen for connections (turn the server on)
 app.listen(port);
