@@ -19,5 +19,25 @@
 #
 
 def unique (mylist)
-  # Your code here
+  list = Array.new
+  mylist.each do |string|
+     list.push(string) unless list.include?(string)
+  end
+list
+end
+
+# or
+
+def unique (mylist)
+  list = []
+  mylist.each do |string|
+     list << string unless list.include?(string)
+  end
+list
+end
+
+#or
+
+def unique (mylist)
+  mylist&mylist
 end
