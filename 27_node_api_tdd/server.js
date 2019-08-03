@@ -1,4 +1,4 @@
-/* 
+/*
 
   Node API TDD
 
@@ -8,16 +8,16 @@
 
   1. There are some tests in place to save us doing the work.
      Stop the server and run the tests with `npm test`
-
+     done
   2. There's a 'deprecated' warning in your logs. Fix this.
-
+  done
   3. Add a 'year' property onto each book. Use correct TDD
      practice (update the test, watch it fail, update server.js
      to make it pass).
 
   4. Beast mode: add some tests to yesterday's challenge. Can you
      figure out a way to test POST?
-  
+
 */
 
 const express = require('express');
@@ -27,16 +27,18 @@ const port = 3000;
 let books = [
   {
     id: 0,
-    title: 'Eloquent JavaScript 2nd Edition'
+    title: 'Eloquent JavaScript 2nd Edition',
+    year: '2016'
   },
   {
     id: 1,
-    title: 'JavaScript: The Good Parts'
+    title: 'JavaScript: The Good Parts',
+    year: '2012'
   }
 ];
 
 app.get("/", (req, res) => {
-  res.send(200);
+  res.sendStatus(200);
 });
 
 app.get("/books", (req, res) => {

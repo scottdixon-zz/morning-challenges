@@ -7,7 +7,7 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('Books API', () => {
-  
+
   describe('GET /', () => {
     it('should return 200/OK', (done) => {
       chai.request(server)
@@ -29,7 +29,7 @@ describe('Books API', () => {
           done();
         });
     });
-    it('should return an array of hashes with id, title', (done) => {
+    it('should return an array of hashes with id, title, year', (done) => {
       chai.request(server)
         .get('/books')
         .end((err, res) => {
@@ -37,6 +37,7 @@ describe('Books API', () => {
           firstBook.should.be.a('object');
           firstBook.should.have.own.property('id');
           firstBook.should.have.own.property('title');
+          firstBook.should.have.own.property('year');
           done();
         });
     });
