@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
   Run this file in your browser to see what it does.
 
@@ -24,26 +24,62 @@
     <style>
     body {
       text-align: center;
+      font-weight: bold;
+      font-family: "Roboto", sans-serif;
+    }
+    input {
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      padding: 20px 0;
+    }
+
+    h1 {
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     }
     </style>
   </head>
 
   <body>
 
-    <p><input type="text" placeholder="Enter your name"></p>
+    <p>
+      <input type="text" id="firstname" placeholder="Enter your first name">
+      <input type="text" id="lastname" placeholder="and last name">
+    </p>
 
     <h1></h1>
 
   </body>
 
   <script>
-  const name = document.querySelector('input')
-  const welcomeMessage = document.querySelector('h1')
+  const name = document.getElementById('firstname')
+  const name2 = document.getElementById('lastname')
+  const welcomeMessage = document.getElementsByTagName('h1')
 
   name.onkeyup = function () {
-    // hint: name.value gives you the current text in the input box
-    welcomeMessage.textContent = `Welcome, ${name.value}!`;
+
+    if (name.value == "") {
+      welcomeMessage.textContent = "";
+    } else {
+      welcomeMessage.textContent = `Welcome, ${name.value.toUpperCase()}
+      ${name2.value.toUpperCase()}!`;
+    }
+  }
+
+  name2.onkeyup = function () {
+
+    if (name.value == "") {
+      welcomeMessage.textContent = "";
+    } else {
+      welcomeMessage.textContent = `Welcome, ${name.value.toUpperCase()}
+      ${name2.value.toUpperCase()}!`;
+    }
   }
   </script>
-
 </html>
