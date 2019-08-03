@@ -11,6 +11,12 @@ mocha tests/18_open_door_test.js
 */
 
 function openDoor (name, hasCoffee) {
+  // if (name=="Simon" && hasCoffee) {
+  //     return true
+  // }else{
+  //    return false
+  // }
+  return name == "Simon" && hasCoffee
   // Your code here
   // Google JS syntax ;)
 }
