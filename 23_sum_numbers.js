@@ -16,8 +16,16 @@
 */
 
 sumNumbers = (numbers) => {
-  
+  var sum = numbers.reduce(function (a, b) {return a + b;}, 0);
+  return sum
 }
-  
 // Don't remove this line, the tests need it
 module.exports = sumNumbers
+//  for {
+//     length = number.length;
+//     sum = 0;
+//     index < length
+//     index += numbers[index++]
+//  );
+//  return sum
+// }
