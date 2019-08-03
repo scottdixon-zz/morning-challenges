@@ -20,6 +20,20 @@
 # ruby tests/10_dictionary_test.rb
 #
 
-class Dictionary
-  # Your code here
-end
+ class Dictionary #attr_accessor :word, :defintion
+   def initialize
+     @words = {}
+   end
+
+   def add_word(word, definition)
+    @words[word] = definition
+   end
+
+   def lookup (word)
+     @words[word]
+   end
+
+   def total_words
+     @words.length
+   end
+ end
