@@ -13,5 +13,10 @@
 #
 
 def pageTitle(url)
-  # your code here
+  require 'open-uri'
+
+  source = open(url).read
+  source.scan(/<title>(.*?)<\/title>/).join
+
+
 end
