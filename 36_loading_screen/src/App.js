@@ -24,14 +24,20 @@ import './App.css';
 class App extends Component {
   // Our initital state. An empty userEmail.
   state = {
-    userEmail: ''
+    userEmail: '',
+    isLoading: true,
+    error: false
   }
   render() {
     return (
       <div className="App">
-        <p className="App-intro">
-          Welcome, { this.state.userEmail }
-        </p>
+        {
+          this.state.error ? <p> oops something went wrong?</p> :
+          this.state.isLoading ? <p>Please wait while the page loads</p> : <p className="App-intro">
+            Welcome, { this.state.userEmail }
+          </p>
+        }
+
       </div>
     );
   }
@@ -40,9 +46,15 @@ class App extends Component {
     setTimeout(() => {
       // Get a random user from the randomuser api
       axios.get('https://randomuser.me/api/').then((response) => {
-        // Update the state with the random user's email
+      // Update the state with the random user's email
         this.setState({
-          userEmail: response.data.results[0].email
+          userEmail: response.data.results[0].email,
+          isLoading: false
+        })
+      })
+      .catch((error) => {
+        this.setState({
+          error: true
         })
       })
     }, 2000)
