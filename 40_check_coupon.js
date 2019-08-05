@@ -20,7 +20,10 @@ checkCoupon('123a','123','September 5, 2018','October 1, 2018') -> false
 */
 
 const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => {
-
+  validated = false
+  if (enteredCode != correctCode) return validated
+  if (Date.parse(expirationDate) >= Date.parse(currentDate)) validated = true
+  return validated
 }
 
 module.exports = checkCoupon
