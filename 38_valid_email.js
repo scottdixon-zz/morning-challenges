@@ -30,8 +30,17 @@
 
 */
 
+
 const validEmail = (email) => {
-  
+  if (!email.includes("@") || !email.includes('.')) return false
+  let [leftString, rightString] = email.split('@')
+  if (!leftString || !rightString) return false
+  //Split rightString after .
+  let [left, right] = rightString.split('.')
+  if (!left || !right) return false
+
+  return true
 }
+
 
 module.exports = validEmail

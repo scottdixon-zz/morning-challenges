@@ -1,4 +1,4 @@
-/* 
+/*
 
   Our login form is broken!
 
@@ -20,11 +20,13 @@
      E.g. "You've tried to login 3 times". Make sure it works per user.
   5. Reset the login failures to 0 if they successfully log in.
   6. Store the users in mongo instead on this file.
-  
+
 */
 
 const express = require('express');
 const app = express();
+var session = require('express-session')
+
 
 // Allow access to everything in /public.
 // This is for our stylesheets & images.
@@ -32,6 +34,9 @@ app.use(express.static('public'));
 
 // Views #thepuglifechoseme
 app.set('view engine', 'pug')
+app.use(session({ secret: 'brokenLogin', cookie: { maxAge: 60000 }}))
+
+
 
 app.get("/", (req, res) => {
   res.render('login');

@@ -21,3 +21,4 @@ describe("Valid Email", function() {
     assert.equal(validEmail('hello@edabit.com'), true);
   });
 });
+ 
