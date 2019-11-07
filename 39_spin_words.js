@@ -14,5 +14,23 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 
 Write the tests first and then make your tests pass!
-
+ to run tests mocha tests/39_spin_words_test.js
 */
+
+const spinWords = (words) => {
+  let splitWords = words.split(' ')
+  let result = []
+  splitWords.map((word) => {
+    if (word.length < 5) {
+      result.push(word)
+    } else {
+      let splitWord = word.split('')
+      let reverseWord = splitWord.reverse().join('')
+      result.push(reverseWord)
+    }
+  })
+  return result.join(' ')
+}
+
+
+module.exports = spinWords
